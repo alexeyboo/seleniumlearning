@@ -5,3 +5,14 @@ Feature: I want to test task six
     When I select "6" task
     And I login as "tester" with password "123-xyz"
     Then I should see the link to download file
+
+  Scenario Outline: I want to login with wrong credentials
+    Given I go to main page
+    When I select "6" task
+    And I login as "<login>" with password "<password>"
+    Then I have not been successfully logged
+
+    Examples:
+      | login    | password |
+      |          | 123      |
+      | bugofnet |          |

@@ -1,4 +1,4 @@
-package page;
+package page_cucumber;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,11 +11,11 @@ import java.util.List;
 import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class BasePage {
+public class BasePageCucumber {
 	WebDriver driver;
 	WebDriverWait wait;
 
-	public BasePage(WebDriver driver) {
+	public BasePageCucumber(WebDriver driver) {
 		this.driver = driver;
 		wait = new WebDriverWait(driver, 15);
 	}

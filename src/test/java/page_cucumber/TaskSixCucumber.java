@@ -1,26 +1,22 @@
-package page;
+package page_cucumber;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import page.BasePage;
 
-import java.util.List;
-
-import static org.junit.Assert.assertFalse;
-
-public class TaskSix extends BasePage {
-	public TaskSix(WebDriver driver) {
+public class TaskSixCucumber extends BasePageCucumber {
+	public TaskSixCucumber(WebDriver driver) {
 		super(driver);
 	}
 
-	public TaskSix fillInLogin(String login) {
+	public TaskSixCucumber fillInLogin(String login) {
 		By loginFormUsername = By.id("LoginForm__username");
 		waitVisibility(loginFormUsername);
 		writeText(loginFormUsername, login);
 		return this;
 	}
 
-	public TaskSix fillInPassword(String password) {
+	public TaskSixCucumber fillInPassword(String password) {
 		By loginFormPassword = By.name("LoginForm[_password]");
 		waitVisibility(loginFormPassword);
 		writeText(loginFormPassword, password);
@@ -28,7 +24,7 @@ public class TaskSix extends BasePage {
 		return this;
 	}
 
-	public TaskSix clickLoginButton() {
+	public TaskSixCucumber clickLoginButton() {
 		click(By.xpath("//button[text()='Login']"));
 
 		return this;
@@ -38,13 +34,13 @@ public class TaskSix extends BasePage {
 		isElementDisplayed(By.linkText("Pobierz plik"));
 	}
 
-	public TaskSix checkElementsOnPagePresent() {
+	public TaskSixCucumber checkElementsOnPagePresent() {
 		isElementDisplayed(By.id("LoginForm__username"));
 		isElementDisplayed(By.xpath("//button[text()='Login']"));
 		return this;
 	}
 
-	public TaskSix isLoginWrong() {
+	public TaskSixCucumber isLoginWrong() {
 		isElementNotDisplayed(By.linkText("Pobierz plik"));
 		return this;
 	}
