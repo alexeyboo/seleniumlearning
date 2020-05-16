@@ -23,6 +23,7 @@ public class TestBaseCucumber {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		main = PageFactory.initElements(driver, MainCucumber.class);
+		taskSix = PageFactory.initElements(driver, TaskSixCucumber.class);
 	}
 
 	public void finish() {

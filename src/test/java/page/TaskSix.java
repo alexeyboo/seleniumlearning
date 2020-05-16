@@ -2,11 +2,6 @@ package page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
-
-import static org.junit.Assert.assertFalse;
 
 public class TaskSix extends BasePage {
 	public TaskSix(WebDriver driver) {
@@ -41,11 +36,6 @@ public class TaskSix extends BasePage {
 	public TaskSix checkElementsOnPagePresent() {
 		isElementDisplayed(By.id("LoginForm__username"));
 		isElementDisplayed(By.xpath("//button[text()='Login']"));
-		return this;
-	}
-
-	public TaskSix isLoginWrong() {
-		isElementNotDisplayed(By.linkText("Pobierz plik"));
 		return this;
 	}
 }

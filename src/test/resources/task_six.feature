@@ -10,9 +10,9 @@ Feature: I want to test task six
     Given I go to main page
     When I select "6" task
     And I login as "<login>" with password "<password>"
-    Then I have not been successfully logged
+    Then I should not see the link to download file
 
     Examples:
       | login    | password |
-      |          | 123      |
-      | bugofnet |          |
+      | 123      | 123      |
+      | bugofnet | 123      |

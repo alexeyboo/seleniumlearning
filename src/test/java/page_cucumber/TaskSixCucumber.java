@@ -2,7 +2,6 @@ package page_cucumber;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import page.BasePage;
 
 public class TaskSixCucumber extends BasePageCucumber {
 	public TaskSixCucumber(WebDriver driver) {
