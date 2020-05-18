@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class MainCucumber extends BasePageCucumber {
-	String SITE_URL = "https://testingcup.pgs-soft.com/";
+	String SITE_URL = "http://127.0.0.1:8080/seleniumtest/main.html";
 
 	public MainCucumber(WebDriver driver) {
 		super(driver);

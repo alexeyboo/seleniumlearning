@@ -8,41 +8,51 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.*;
 
 public class BasePageCucumber {
-	WebDriver driver;
-	WebDriverWait wait;
+	public WebDriver driver;
+	public WebDriverWait wait;
 
 	public BasePageCucumber(WebDriver driver) {
 		this.driver = driver;
 		wait = new WebDriverWait(driver, 15);
 	}
 
+	//Wait Wrapper Method  by element located By
 	public void waitVisibility(By elementBy) {
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(elementBy));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(elementBy));
 	}
 
+	//Click Method by element located By
 	public void click(By elementBy) {
 		waitVisibility(elementBy);
 		driver.findElement(elementBy).click();
 	}
 
+	//Is Element located By  Displayed
 	public void isElementDisplayed(By elementBy) {
 		waitVisibility(elementBy);
 		assertTrue(driver.findElement(elementBy).isDisplayed());
 	}
 
-	public void isElementNotDisplayed(By elementBy) {
-		List<WebElement> elements = driver.findElements(elementBy);
-		assertFalse(elements.size() > 0);
+	public void waitForFilling(By elementBy) {
+		wait.until(ExpectedConditions.elementToBeClickable(elementBy));
 	}
 
+	//Write Text in field located By
 	public void writeText(By elementBy, String text) {
 		waitVisibility(elementBy);
 		WebElement element = driver.findElement(elementBy);
 		element.clear();
 		element.sendKeys(text);
+	}
+
+	public void isElementNotDisplayed(By elementBy) {
+		assertTrue(driver.findElements(elementBy).isEmpty());
+	}
+
+	public void isAlertText(String message) {
+		assertEquals(message, driver.switchTo().alert().getText());
 	}
 }
